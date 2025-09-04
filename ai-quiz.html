@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Basics Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .question { margin-bottom: 20px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #result { font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>AI Basics Quiz</h1>
+    <p>Test your knowledge of AI! Select answers and submit.</p>
+    <div class="question">
+        <p>1. What does AGI stand for?</p>
+        <input type="radio" name="q1" value="a"> Artificial General Intelligence<br>
+        <input type="radio" name="q1" value="b"> Advanced Graphics Interface<br>
+        <input type="radio" name="q1" value="c"> Automated Game Input<br>
+    </div>
+    <div class="question">
+        <p>2. Which company is behind the Dobby AI model?</p>
+        <input type="radio" name="q2" value="a"> Google<br>
+        <input type="radio" name="q2" value="b"> Sentient<br>
+        <input type="radio" name="q2" value="c"> OpenAI<br>
+    </div>
+    <div class="question">
+        <p>3. What is a large language model (LLM)?</p>
+        <input type="radio" name="q3" value="a"> A type of AI that processes text<br>
+        <input type="radio" name="q3" value="b"> A hardware component<br>
+        <input type="radio" name="q3" value="c"> A programming language<br>
+    </div>
+    <button onclick="submitQuiz()">Submit Quiz</button>
+    <div id="result"></div>
+    <script>
+        function submitQuiz() {
+            let score = 0;
+            const answers = { q1: 'a', q2: 'b', q3: 'a' };
+            for (let i = 1; i <= 3; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) score++;
+            }
+            document.getElementById('result').innerText = `You scored ${score}/3!`;
+        }
+    </script>
+</body>
+</html>
